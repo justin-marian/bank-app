@@ -1,0 +1,17 @@
+{
+  "java.import.maven.enabled": true,
+  "java.format.settings.google.style": "google",
+  "java.format.settings.google.version": "1.28.0",
+  "java.format.settings.google.mode": "native-binary",
+  "[java]": {
+    "editor.defaultFormatter": "josevseb.google-java-format-for-vs-code",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "never"
+    }
+  }
+}

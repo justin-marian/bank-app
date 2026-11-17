@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "redhat.java",
+    "vscjava.vscode-java-test",
+    "vscjava.vscode-maven",
+    "josevseb.google-java-format-for-vs-code"
+  ]
+}

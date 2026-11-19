@@ -14,7 +14,7 @@ public class Client {
   private final Set<Account> accounts = new LinkedHashSet<>();
 
   public Client(String name, Gender gender) {
-    this(name, gender, "Not Specified");
+    this(name, gender, "Unknown");
   }
 
   public Client(String name, Gender gender, String city) {
@@ -46,7 +46,7 @@ public class Client {
   }
 
   /**
-   * Stores the trimmed city name, using {@code Not Specified} for a null or blank value.
+   * Stores the trimmed city name, using {@code Unknown} for a null or blank value.
    *
    * @param city the city name to store
    */
@@ -56,7 +56,7 @@ public class Client {
 
   private static String normalizeCity(String city) {
     String trimmed = city == null ? "" : city.trim();
-    return trimmed.isEmpty() ? "Not Specified" : trimmed;
+    return trimmed.isEmpty() ? "Unknown" : trimmed;
   }
 
   /**

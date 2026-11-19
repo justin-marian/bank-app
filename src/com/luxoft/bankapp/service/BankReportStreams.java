@@ -21,11 +21,6 @@ import java.util.stream.Stream;
  * reports keep the first occurrence of equal accounts in encounter order.
  */
 public class BankReportStreams {
-  static final Comparator<Client> BY_NAME =
-      Comparator.comparing(Client::getName, Comparator.nullsFirst(Comparator.naturalOrder()));
-  static final Comparator<Account> BY_BALANCE =
-      Comparator.comparingDouble(Account::getBalance).thenComparingInt(Account::getId);
-
   public static int getNumberOfClients(Bank bank) {
     return Math.toIntExact(bank.getClients().stream().count());
   }
@@ -36,7 +31,7 @@ public class BankReportStreams {
 
   public static SortedSet<Client> getClientsSorted(Bank bank) {
     return bank.getClients().stream()
-        .collect(Collectors.toCollection(() -> new TreeSet<>(BY_NAME)));
+        .collect(Collectors.toCollection(() -> new TreeSet<>(BankReport.BY_NAME)));
   }
 
   public static double getTotalSumInAccounts(Bank bank) {
@@ -47,7 +42,7 @@ public class BankReportStreams {
    * @see BankReport#getAccountsSortedBySum(Bank)
    */
   public static SortedSet<Account> getAccountsSortedBySum(Bank bank) {
-    return accounts(bank).collect(Collectors.toCollection(() -> new TreeSet<>(BY_BALANCE)));
+    return accounts(bank).collect(Collectors.toCollection(() -> new TreeSet<>(BankReport.BY_BALANCE)));
   }
 
   /**

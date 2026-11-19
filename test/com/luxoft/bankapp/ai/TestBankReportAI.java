@@ -63,12 +63,12 @@ class TestBankReportAI {
                 new ArrayList<>(BankReportStreams.getCustomerAccounts(bank).get(ana)).get(2)),
         () ->
             assertEquals(
-                Arrays.asList("Cluj-Napoca", "Iasi", "Not Specified"),
+                Arrays.asList("Cluj-Napoca", "Iasi", "Unknown"),
                 new ArrayList<>(BankReport.getClientsByCity(bank).keySet())),
         () ->
             assertEquals(
                 Collections.singletonList(radu),
-                BankReport.getClientsByCity(bank).get("Not Specified")),
+                BankReport.getClientsByCity(bank).get("Unknown")),
         () -> assertSame(first, BankReportStreams.getAccountsSortedBySum(bank).last()));
     assertReportsAgree(bank);
   }
@@ -106,7 +106,7 @@ class TestBankReportAI {
                 new ArrayList<>(BankReportStreams.getCustomerAccounts(bank).get(zoe))),
         () ->
             assertEquals(
-                Collections.singletonMap("Not Specified", Arrays.asList(zoe, ana)),
+                Collections.singletonMap("Unknown", Arrays.asList(zoe, ana)),
                 BankReportStreams.getClientsByCity(bank)));
   }
 

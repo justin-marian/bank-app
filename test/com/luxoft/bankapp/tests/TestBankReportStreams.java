@@ -113,8 +113,7 @@ class TestBankReportStreams {
     Map<String, List<Client>> cities = BankReportStreams.getClientsByCity(bank);
 
     assertEquals(
-        Arrays.asList("Bucharest", "Not Specified", "Timisoara"),
-        new ArrayList<>(cities.keySet()));
+        Arrays.asList("Bucharest", "Not Specified", "Timisoara"), new ArrayList<>(cities.keySet()));
     assertEquals(Collections.singletonList(alice), cities.get("Bucharest"));
     assertEquals(Arrays.asList(zoe, bob), cities.get("Timisoara"));
     assertEquals(Collections.singletonList(noCity), cities.get("Not Specified"));
@@ -146,7 +145,8 @@ class TestBankReportStreams {
         BankReport.getTotalSumInAccounts(bank),
         BankReportStreams.getTotalSumInAccounts(bank),
         DELTA);
-    assertEquals(BankReport.getBankCreditSum(bank), BankReportStreams.getBankCreditSum(bank), DELTA);
+    assertEquals(
+        BankReport.getBankCreditSum(bank), BankReportStreams.getBankCreditSum(bank), DELTA);
     assertEquals(
         new ArrayList<>(BankReport.getClientsSorted(bank)),
         new ArrayList<>(BankReportStreams.getClientsSorted(bank)));

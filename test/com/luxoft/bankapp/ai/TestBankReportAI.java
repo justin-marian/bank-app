@@ -67,8 +67,7 @@ class TestBankReportAI {
                 new ArrayList<>(BankReport.getClientsByCity(bank).keySet())),
         () ->
             assertEquals(
-                Collections.singletonList(radu),
-                BankReport.getClientsByCity(bank).get("Unknown")),
+                Collections.singletonList(radu), BankReport.getClientsByCity(bank).get("Unknown")),
         () -> assertSame(first, BankReportStreams.getAccountsSortedBySum(bank).last()));
     assertReportsAgree(bank);
   }

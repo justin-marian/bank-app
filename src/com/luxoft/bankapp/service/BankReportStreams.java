@@ -6,7 +6,6 @@ import com.luxoft.bankapp.domain.CheckingAccount;
 import com.luxoft.bankapp.domain.Client;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,7 +41,8 @@ public class BankReportStreams {
    * @see BankReport#getAccountsSortedBySum(Bank)
    */
   public static SortedSet<Account> getAccountsSortedBySum(Bank bank) {
-    return accounts(bank).collect(Collectors.toCollection(() -> new TreeSet<>(BankReport.BY_BALANCE)));
+    return accounts(bank)
+        .collect(Collectors.toCollection(() -> new TreeSet<>(BankReport.BY_BALANCE)));
   }
 
   /**
